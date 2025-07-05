@@ -8,6 +8,10 @@ import { HRProvider } from "./context/HRContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import Layout from "./components/Layout";
+import Dashboard from "./pages/Dashboard";
+import EmployeeDetails from "./pages/EmployeeDetails";
+import Bookmarks from "./pages/Bookmarks";
+import Analytics from "./pages/Analytics";
 import Login from "./pages/Login";
 import "./App.css";
 
@@ -44,7 +48,12 @@ function App() {
                       <Layout />
                     </ProtectedRoute>
                   }
-                ></Route>
+                >
+                  <Route index element={<Dashboard />} />
+                  <Route path="employee/:id" element={<EmployeeDetails />} />
+                  <Route path="bookmarks" element={<Bookmarks />} />
+                  <Route path="analytics" element={<Analytics />} />
+                </Route>
               </Routes>
             </div>
           </Router>
